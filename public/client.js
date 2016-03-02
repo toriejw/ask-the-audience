@@ -21,10 +21,23 @@ for (var i = 0; i < buttons.length; i++) {
 }
 
 var voteTally = document.getElementById('vote-tally');
+var voteVisualization = document.getElementById('vote-visualization');
 
 socket.on('voteCount', function (votes) {
   voteTally.innerText = 'A: ' + votes['A'] + ' B: ' + votes['B'] + ' C: ' + votes['C'] + ' D: ' + votes['D']
+  voteVisualization.innerHTML = 'A: ' + visualizeVotes(votes['A'])
+                                + '<br>B: ' + visualizeVotes(votes['B'])
+                                + '<br>C: ' + visualizeVotes(votes['C'])
+                                + '<br>D: ' + visualizeVotes(votes['D'])
 });
+
+function visualizeVotes(count) {
+  var visual = '';
+  for (var i = 1; i <= count; i++) {
+    visual = visual + '|'
+  };
+  return visual
+}
 
 var userVote = document.getElementById('user-vote');
 

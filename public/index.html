@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <title>Ask the Audience</title>
+    <link href="style.css" type="text/css" rel="stylesheet"></script>
   </head>
   <body>
-    <div id="connection-count"></div>
+    <h1>Welcome to Ask the Audience! Record your vote below.</h1>
     <div id="status-message"></div>
-    <div id="user-vote"></div>
-    <div id="vote-tally"></div>
+    <div id="connection-count"></div>
 
     <div id="choices">
       <button>A</button>
@@ -16,6 +16,13 @@
       <button>C</button>
       <button>D</button>
     </div>
+
+    <div>Current vote tally:</div>
+    <div id="vote-tally">A: 0 B: 0 C: 0 D: 0</div>
+    <br>
+    <div id="vote-visualization"></div>
+    <br>
+    <div id="user-vote"></div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="/client.js"></script>
