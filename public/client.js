@@ -19,3 +19,15 @@ for (var i = 0; i < buttons.length; i++) {
     socket.send('voteCast', this.innerText);
   });
 }
+
+var voteTally = document.getElementById('vote-tally');
+
+socket.on('voteCount', function (votes) {
+  voteTally.innerText = 'A: ' + votes['A'] + ' B: ' + votes['B'] + ' C: ' + votes['C'] + ' D: ' + votes['D']
+});
+
+var userVote = document.getElementById('user-vote');
+
+socket.on('userVote', function (vote) {
+  userVote.innerText = 'Your vote has been recorded. You selected: ' + vote
+});
